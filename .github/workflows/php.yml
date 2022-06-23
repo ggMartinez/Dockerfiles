@@ -16,8 +16,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_username: ${{ secerts.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secerts.DOCKERHUB_PASSWORD }}
+          dockerhub_username: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           build_context: ./PHP8/Base
           build_tags: |
             ggmartinez/php:8
@@ -31,8 +31,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_username: ${{ secerts.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secerts.DOCKERHUB_PASSWORD }}
+          dockerhub_username: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           build_context: ./PHP8/Apache
           build_tags: |
             ggmartinez/php:8-apache
