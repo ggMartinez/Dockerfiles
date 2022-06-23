@@ -32,7 +32,7 @@ jobs:
         with:
           context: ./Terraform
           tags: |
-            $DOCKER_IMAGE:1.2.3
-            $DOCKER_IMAGE:latest
+            ggmartinez/terraform:1.2.3
+            ggmartinez/terraform:latest
           push: true
   
