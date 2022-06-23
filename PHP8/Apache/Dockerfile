@@ -1,6 +1,6 @@
 FROM ggmartinez/php:8
 
-RUN && yum-config-manager --disable 'remi-php*' \
+RUN yum-config-manager --disable 'remi-php*' \
  && yum-config-manager --enable remi-php80 \
  && yum -y install httpd  \
  && yum clean all \
