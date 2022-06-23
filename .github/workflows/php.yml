@@ -9,6 +9,7 @@ on:
 
 jobs:
   Base:
+    if: "contains(github.event.commits[0].message, '[full]')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
