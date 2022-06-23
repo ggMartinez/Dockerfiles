@@ -9,6 +9,7 @@ on:
 env:
   DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
   DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  DOCKER_IMAGE: '{$DOCKERHUB_USER}/terraform'
 
   
 
