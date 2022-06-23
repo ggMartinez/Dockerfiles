@@ -1,7 +1,6 @@
 #!/bin/bash
-
-IMAGE="$DOCKERHUB_USER/terraform"
-TAG="1.2.3"
+IMAGE="$DOCKERHUB_USER/php"
+TAG="8"
 
 expect <<EOF
 spawn docker login -u ${DOCKERHUB_USER}
@@ -15,8 +14,5 @@ EOF
 
 docker build . -t ${IMAGE}:${TAG}
 docker push ${IMAGE}:${TAG}
-docker tag ${IMAGE}:${TAG} ${IMAGE}:latest
-docker push ${IMAGE}:latest
 
 docker logout
-docker image rm ${IMAGE}:${TAG} ${IMAGE}:latest
