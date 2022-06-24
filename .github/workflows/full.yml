@@ -1,4 +1,4 @@
-name: 'PHP 8'
+name: 'PHP 8 - Full'
 
 on:
   push:
@@ -8,7 +8,37 @@ on:
 
 
 jobs:
-  Apache:
+  Terraform-123:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          build_context: ./Terraform
+          build_tags: |
+            ggmartinez/terraform:1.2.3
+            ggmartinez/terraform:latest
+
+  PHP8-Base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          build_context: ./PHP8/Base
+          build_tags: |
+            ggmartinez/php:8
+            ggmartinez/php:latest
+  PHP8-Apache:
+    needs: PHP8-Apache
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -22,8 +52,8 @@ jobs:
           build_tags: |
             ggmartinez/php:8-apache
             ggmartinez/php:latest-apache
-  Apache-Xdebug:
-    needs: Apache
+  PHP8-Apache-Xdebug:
+    needs: PHP8-Apache
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
