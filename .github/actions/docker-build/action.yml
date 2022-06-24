@@ -16,6 +16,7 @@ inputs:
   dockerfile:
     required: true 
     description: Dockerfile for building
+    default: Dockerfile
 runs:
   using: "composite"
   steps:
@@ -36,4 +37,5 @@ runs:
       with:
         context: ${{ inputs.build_context }}
         tags: ${{ inputs.build_tags }}
+        file: ${{ inputs.dockerfile }}
         push: true
