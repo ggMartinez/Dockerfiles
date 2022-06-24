@@ -155,7 +155,7 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           build_context: ./PHP/Laravel9
-          dockerfile: Dockerfile-php7
+          dockerfile: "Dockerfile-php7"
           build_tags: |
             ggmartinez/php:laravel9-php7
   Laravel9-PHP7-Xdebug:
@@ -188,7 +188,7 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           build_context: ./PHP/Laravel9
-          dockerfile: Dockerfile-php8
+          dockerfile: "Dockerfile-php8"
           build_tags: |
             ggmartinez/php:laravel9-php8
   Laravel9-PHP8-Xdebug:
