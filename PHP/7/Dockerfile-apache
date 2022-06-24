@@ -1,7 +1,7 @@
 FROM ggmartinez/php:7
 
 RUN yum-config-manager --disable 'remi-php*' \
- && yum-config-manager --enable remi-php80 \
+ && yum-config-manager --enable remi-php74 \
  && yum -y install httpd  \
  && yum clean all \
  && rm -rf /var/cache/yum
