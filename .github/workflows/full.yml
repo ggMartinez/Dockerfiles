@@ -173,7 +173,7 @@ jobs:
           build_context: ./PHP/Laravel9
           build_tags: |
             ggmartinez/php:laravel9-php8
-  Laravel9-PHP7-Xdebug:
+  Laravel9-PHP8-Xdebug:
     needs: Laravel9-PHP8
     runs-on: ubuntu-latest
     steps:
