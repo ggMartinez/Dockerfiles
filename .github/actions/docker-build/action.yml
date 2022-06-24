@@ -33,9 +33,7 @@ runs:
     - uses: satackey/action-docker-layer-caching@v0.0.11
       continue-on-error: true
     - name: Build image and push to Docker Hub
-      uses: docker/build-push-action@v2
-      with:
-        context: ${{ inputs.build_context }}
-        tags: ${{ inputs.build_tags }}
-        file: ${{ inputs.dockerfile }}
-        push: true
+      run: docker build ${{ input.build_context }} ${{ inputs.build_tags }} -f ${{ input.dockerfile }}
+    - name: Push 
+      run: docker push ${{ inputs.build_tags }}
+     
