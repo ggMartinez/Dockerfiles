@@ -13,6 +13,10 @@ inputs:
   dockerhub_password:
     required: true
     description: "Dockerhub password"
+  dockerfile:
+    required: true 
+    description: Dockerfile for building
+    default: Dockerfile
 runs:
   using: "composite"
   steps:

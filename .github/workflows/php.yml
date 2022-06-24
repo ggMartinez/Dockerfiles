@@ -22,7 +22,7 @@ jobs:
           build_tags: |
             ggmartinez/php:8-apache
             ggmartinez/php:latest-apache
-  ApacheXDebug:
+  Apache-Xdebug:
     needs: Apache
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +33,37 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP8/ApacheXDebug
+          dockerfile: "Dockerfile-Xdebug"
+          build_context: ./PHP8/Apache
           build_tags: |
             ggmartinez/php:8-apache-xdebug
+  Laravel9:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          build_context: ./PHP8/Laravel9
+          build_tags: |
+            ggmartinez/php:laravel9
+  Laravel9-Xdebug:
+    needs: Laravel9
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          dockerfile: "Dockerfile-Xdebug"
+          build_context: ./PHP8/Laravel9
+          build_tags: |
+            ggmartinez/laravel9-xdebug
+
 
