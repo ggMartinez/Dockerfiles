@@ -159,7 +159,7 @@ jobs:
           build_tags: |
             ggmartinez/php:laravel9-php7
   Laravel9-PHP7-Xdebug:
-    needs: Laravel9-PHP7-Xdebug
+    needs: Laravel9-PHP7
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -192,7 +192,7 @@ jobs:
           build_tags: |
             ggmartinez/php:laravel9-php8
   Laravel9-PHP8-Xdebug:
-    needs: Laravel9-PHP7-Xdebug
+    needs: Laravel9-PHP8
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
