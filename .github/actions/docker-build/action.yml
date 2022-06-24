@@ -34,6 +34,8 @@ runs:
       continue-on-error: true
     - name: Build image and push to Docker Hub
       run: docker build ${{ input.build_context }} ${{ inputs.build_tags }} -f ${{ input.dockerfile }}
+      shell: bash
     - name: Push 
       run: docker push ${{ inputs.build_tags }}
+      shell: bash
      
