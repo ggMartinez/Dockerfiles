@@ -129,8 +129,8 @@ jobs:
             ggmartinez/php:7-apache-xdebug
 
   Laravel9-PHP7:
-    runs-on: ubuntu-latest
     needs: PHP7-Base
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -157,13 +157,10 @@ jobs:
           dockerfile: "Dockerfile-php7-Xdebug"
           build_context: ./PHP/Laravel9
           build_tags: |
-            ggmartinez/laravel9-php7-xdebug
-
-
-
+            ggmartinez/php:laravel9-php7-Xdebug
   Laravel9-PHP8:
-    runs-on: ubuntu-latest
     needs: PHP8-Base
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -176,7 +173,7 @@ jobs:
           build_context: ./PHP/Laravel9
           build_tags: |
             ggmartinez/php:laravel9-php8
-  Laravel9-PHP8-Xdebug:
+  Laravel9-PHP7-Xdebug:
     needs: Laravel9-PHP8
     runs-on: ubuntu-latest
     steps:
@@ -190,6 +187,4 @@ jobs:
           dockerfile: "Dockerfile-php8-Xdebug"
           build_context: ./PHP/Laravel9
           build_tags: |
-            ggmartinez/laravel9-php8-xdebug
-
-
+            ggmartinez/php:laravel9-php8-Xdebug
