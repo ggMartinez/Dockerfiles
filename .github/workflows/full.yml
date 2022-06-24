@@ -29,7 +29,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Build image and push to Docker Hub
-        run: ls ./PHP/Laravel9
+        run: ls ./PHP/Laravel/9
   PHP8-Xdebug:
     needs: PHP8-Base
     runs-on: ubuntu-latest
