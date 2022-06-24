@@ -23,59 +23,6 @@ jobs:
             ggmartinez/terraform:1.2.3
             ggmartinez/terraform:latest
 
-  PHP8-Base:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        run: ls ./PHP/Laravel/9
-  PHP8-Xdebug:
-    needs: PHP8-Base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: "Dockerfile-Xdebug"
-          build_context: $GITHUB_WORKSPACE/PHP/8
-          build_tags: |
-            ggmartinez/php:8-xdebug
-  PHP8-Apache:
-    needs: PHP-Base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: Dockerfile-apache
-          build_context: $GITHUB_WORKSPACE/PHP/7
-          build_tags: |
-            ggmartinez/php:7-apache
-  PHP8-Apache-Xdebug:
-    needs: PHP8-Apache
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: "Dockerfile-Xdebug-apache"
-          build_context: $GITHUB_WORKSPACE/PHP/8
-          build_tags: |
-            ggmartinez/php:8-apache-xdebug
-
   PHP7-Base:
     runs-on: ubuntu-latest
     steps:
@@ -134,6 +81,59 @@ jobs:
           build_context: $GITHUB_WORKSPACE/PHP/7
           build_tags: |
             ggmartinez/php:7-apache-xdebug
+
+  PHP8-Base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        run: echo "PASS"
+  PHP8-Xdebug:
+    needs: PHP8-Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          dockerfile: "Dockerfile-Xdebug"
+          build_context: $GITHUB_WORKSPACE/PHP/8
+          build_tags: |
+            ggmartinez/php:8-xdebug
+  PHP8-Apache:
+    needs: PHP8-Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          dockerfile: Dockerfile-apache
+          build_context: $GITHUB_WORKSPACE/PHP/8
+          build_tags: |
+            ggmartinez/php:8-apache
+  PHP8-Apache-Xdebug:
+    needs: PHP8-Apache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          dockerfile: "Dockerfile-Xdebug-apache"
+          build_context: $GITHUB_WORKSPACE/PHP/8
+          build_tags: |
+            ggmartinez/php:8-apache-xdebug
 
   Laravel9-PHP7:
     needs: PHP7-Base
