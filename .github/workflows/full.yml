@@ -37,7 +37,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Build image and push to Docker Hub
-        uses: $GITHUB_WORKSPACE/./.github/actions/docker-build
+        uses: ./.github/actions/docker-build
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
