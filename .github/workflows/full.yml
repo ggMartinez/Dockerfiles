@@ -1,4 +1,4 @@
-name: 'PHP 8 - Full'
+name: 'Dockerfiles buld'
 
 on:
   push:
@@ -140,7 +140,7 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: "Dockerfile-php7"
-          build_context: ./PHP/Laravel9
+          build_context: ./PHP/Laravel/9
           build_tags: |
             ggmartinez/php:laravel9-php7
   Laravel9-PHP7-Xdebug:
@@ -155,7 +155,7 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: "Dockerfile-php7-Xdebug"
-          build_context: ./PHP/Laravel9
+          build_context: ./PHP/Laravel/9
           build_tags: |
             ggmartinez/php:laravel9-php7-Xdebug
   Laravel9-PHP8:
@@ -170,7 +170,7 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: "Dockerfile-php8"
-          build_context: ./PHP/Laravel9
+          build_context: ./PHP/Laravel/9
           build_tags: |
             ggmartinez/php:laravel9-php8
   Laravel9-PHP8-Xdebug:
@@ -185,6 +185,6 @@ jobs:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
           dockerfile: "Dockerfile-php8-Xdebug"
-          build_context: ./PHP/Laravel9
+          build_context: ./PHP/Laravel/9
           build_tags: |
             ggmartinez/php:laravel9-php8-Xdebug
