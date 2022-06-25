@@ -92,7 +92,7 @@ jobs:
           build_tags: |
             ggmartinez/php:8
   PHP8-Xdebug:
-    needs: PHP7-Base
+    needs: PHP8-Base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -106,7 +106,7 @@ jobs:
           build_tags: |
             ggmartinez/php:8-Xdebug
   PHP8-Apache:
-    needs: PHP7-Base
+    needs: PHP8-Base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -120,7 +120,7 @@ jobs:
           build_tags: |
             ggmartinez/php:8-apache
   PHP8-Apache-Xdebug:
-    needs: PHP7-Apache
+    needs: PHP8-Apache
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
