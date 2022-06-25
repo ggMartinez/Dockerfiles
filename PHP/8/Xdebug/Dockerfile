@@ -1,4 +1,4 @@
-FROM ggmartinez/php:8-apache
+FROM ggmartinez/php:8
 
 RUN yum-config-manager --disable 'remi-php*' \
  && yum-config-manager --enable remi-php80 \

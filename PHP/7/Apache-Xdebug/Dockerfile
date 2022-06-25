@@ -1,4 +1,4 @@
-FROM ggmartinez/php:7
+FROM ggmartinez/php:7-apache
 
 RUN yum-config-manager --disable 'remi-php*' \
  && yum-config-manager --enable remi-php74 \
