@@ -161,6 +161,20 @@ jobs:
           build_context: ./PHP/Laravel/9-php7-xdebug
           build_tags: |
             ggmartinez/laravel:9-php7-Xdebug
+  Laravel9-PHP7-Xdebug-mssql:
+    needs: Laravel9-PHP7-Xdebug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Build image and push to Docker Hub
+        uses: ./.github/actions/docker-build
+        with:
+          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          build_context: ./PHP/Laravel/9-php7-xdebug-mssql
+          build_tags: |
+            ggmartinez/laravel:9-php7-Xdebug-mssql
   Laravel9-PHP8:
     needs: PHP8-Base
     runs-on: ubuntu-latest
