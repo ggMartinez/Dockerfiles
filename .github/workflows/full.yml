@@ -47,7 +47,6 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: "./Dockerfile-Xdebug"
           build_context: ./PHP/7/Xdebug
           build_tags: |
             ggmartinez/php:7-xdebug
@@ -62,7 +61,6 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: Dockerfile-apache
           build_context: ./PHP/7/Apache
           build_tags: |
             ggmartinez/php:7-apache
@@ -77,7 +75,6 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          dockerfile: "./Dockerfile-Xdebug-apache"
           build_context: ./PHP/7/Apache-Xdebug
           build_tags: |
             ggmartinez/php:7-apache-xdebug
