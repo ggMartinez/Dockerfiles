@@ -1,0 +1,14 @@
+#!/bin/bash
+cd /app
+if ! [ -f "artisan" ]
+then
+   echo "Creating new Project.\n\n"
+   composer global require laravel/installer
+   /root/.config/composer/vendor/bin/laravel new project
+   shopt -s dotglob
+   mv project/* .
+   echo "Project creation complete. Deleting Laravel installer."
+   rm -rf project
+else
+   echo "Project already exists. F*ck off!"
+fi
