@@ -234,7 +234,7 @@ jobs:
             ggmartinez/python:3-debugpy
   Django-165:
     runs-on: ubuntu-latest
-    needs: Python2
+    needs: Python2-Debugy
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
