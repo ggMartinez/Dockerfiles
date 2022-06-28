@@ -15,5 +15,6 @@ RUN echo " " > /etc/httpd/conf.d/welcome.conf && \
     sed -i '182s/logs\/error_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf && \
     sed -i '217s/logs\/access_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf
 
+COPY --chmod=0755 start.sh /start.sh
 WORKDIR /var/www/html 
-CMD httpd -D FOREGROUND
+CMD /start.sh
