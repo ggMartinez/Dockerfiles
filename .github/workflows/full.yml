@@ -210,7 +210,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8/php7-xdebug-mssql
+          build_context: ./PHP/Laravel/8/php7-mssql
           build_tags: |
             ggmartinez/laravel:8-php7-mssql
   Laravel8-PHP7-MSSQL-Xdebug:
@@ -280,7 +280,7 @@ jobs:
             ggmartinez/laravel:8-mssql
 
   Laravel8-PHP8-MSSQL-Xdebug:
-    needs: Laravel8-PHP8
+    needs: Laravel8-PHP8-Xdebug
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
