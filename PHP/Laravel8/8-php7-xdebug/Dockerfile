@@ -1,4 +1,4 @@
-FROM ggmartinez/laravel:9-php7
+FROM ggmartinez/laravel:8-php7
 
 RUN yum-config-manager --disable 'remi-php*' \
  && yum-config-manager --enable remi-php74 \
