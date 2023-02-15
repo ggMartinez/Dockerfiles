@@ -182,7 +182,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php7
+          build_context: ./PHP/Laravel/8/php7
           build_tags: |
             ggmartinez/laravel:8-php7
   Laravel8-PHP7-Xdebug:
@@ -196,7 +196,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php7-xdebug
+          build_context: ./PHP/Laravel/8/php7-xdebug
           build_tags: |
             ggmartinez/laravel:8-php7-Xdebug
   Laravel8-PHP7-MSSQL:
@@ -210,7 +210,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php7-xdebug-mssql
+          build_context: ./PHP/Laravel/8/php7-xdebug-mssql
           build_tags: |
             ggmartinez/laravel:8-php7-mssql
   Laravel8-PHP7-MSSQL-Xdebug:
@@ -224,7 +224,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel8-php7-mssql-xdebug
+          build_context: ./PHP/Laravel/8/php7-mssql-xdebug
           build_tags: |
             ggmartinez/laravel:8-php7-Xdebug-mssql
 
@@ -243,7 +243,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php8
+          build_context: ./PHP/Laravel/8/php8
           build_tags: |
             ggmartinez/laravel:8-php8
             ggmartinez/laravel:8
@@ -258,7 +258,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php8-xdebug
+          build_context: ./PHP/Laravel/8/php8-xdebug
           build_tags: |
             ggmartinez/laravel:8-php8-Xdebug
             ggmartinez/laravel:8-Xdebug
@@ -274,7 +274,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php8-mssql
+          build_context: ./PHP/Laravel/8/php8-mssql
           build_tags: |
             ggmartinez/laravel:8-php8-mssql
             ggmartinez/laravel:8-mssql
@@ -290,7 +290,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8-php8-mssql-xdebug
+          build_context: ./PHP/Laravel/8/php8-mssql-xdebug
           build_tags: |
             ggmartinez/laravel:8-php8-mssql-xdebug
             ggmartinez/laravel:8-mssql-xdebug
