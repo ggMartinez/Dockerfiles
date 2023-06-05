@@ -67,7 +67,6 @@ jobs:
     needs: PHP7-Base
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
         uses: actions/checkout@v2
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
@@ -263,37 +262,37 @@ jobs:
             ggmartinez/laravel:8-php8-Xdebug
             ggmartinez/laravel:8-Xdebug
 
-  Laravel8-PHP8-MSSQL:
-    needs: Laravel8-PHP8
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8/php8-mssql
-          build_tags: |
-            ggmartinez/laravel:8-php8-mssql
-            ggmartinez/laravel:8-mssql
+  # Laravel8-PHP8-MSSQL:
+  #   needs: Laravel8-PHP8
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./PHP/Laravel/8/php8-mssql
+  #         build_tags: |
+  #           ggmartinez/laravel:8-php8-mssql
+  #           ggmartinez/laravel:8-mssql
 
-  Laravel8-PHP8-MSSQL-Xdebug:
-    needs: Laravel8-PHP8-Xdebug
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./PHP/Laravel/8/php8-mssql-xdebug
-          build_tags: |
-            ggmartinez/laravel:8-php8-mssql-xdebug
-            ggmartinez/laravel:8-mssql-xdebug
+  # Laravel8-PHP8-MSSQL-Xdebug:
+  #   needs: Laravel8-PHP8-Xdebug
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./PHP/Laravel/8/php8-mssql-xdebug
+  #         build_tags: |
+  #           ggmartinez/laravel:8-php8-mssql-xdebug
+  #           ggmartinez/laravel:8-mssql-xdebug
 
   # =================
   # Python 
