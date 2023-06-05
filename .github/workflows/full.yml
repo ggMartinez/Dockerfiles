@@ -67,6 +67,7 @@ jobs:
     needs: PHP7-Base
     runs-on: ubuntu-latest
     steps:
+      - name: Checlout Code
         uses: actions/checkout@v2
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
