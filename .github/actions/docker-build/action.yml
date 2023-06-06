@@ -10,6 +10,9 @@ inputs:
   build_args: 
     required: false 
     description: "Build args"
+  build_dockerfile:
+    required: false
+    description: "Dockerfile to build"
   dockerhub_user:
     required: true
     description: "Dockerhub username"
@@ -38,4 +41,5 @@ runs:
         tags: ${{ inputs.build_tags }}
         push: true
         build-args: ${{ inputs.build_args }}
+        file: ${{ inputs.build_dockerfile }}
      
