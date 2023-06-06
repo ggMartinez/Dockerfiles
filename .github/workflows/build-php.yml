@@ -28,7 +28,7 @@ jobs:
           dockerhub_user: ${{ secrets.dockerhub_user }}
           dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Base
-          build_dockerfile: Dockerfile${{ matrix.dockerfile }}
+          build_dockerfile: ${context}/Dockerfile${{ matrix.dockerfile }}
           build_tags: |
             ggmartinez/php:${{ inputs.version }}${{ matrix.dockerfile }}
           build_args: |
