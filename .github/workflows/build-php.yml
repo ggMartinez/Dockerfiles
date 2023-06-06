@@ -22,8 +22,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_user: ${{ inputs.dockerhub_user }}
-          dockerhub_password: ${{ inputs.dockerhub_password }}
+          dockerhub_user: ${{ secrets.dockerhub_user }}
+          dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Base
           build_tags: |
             ggmartinez/php:{{ $inputs.version }}
@@ -38,8 +38,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_user: ${{ inputs.dockerhub_user }}
-          dockerhub_password: ${{ inputs.dockerhub_password }}
+          dockerhub_user: ${{ secrets.dockerhub_user }}
+          dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Xdebug
           build_tags: |
             ggmartinez/php:{{ $inputs.version }}-Xdebug
@@ -53,8 +53,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_user: ${{ inputs.dockerhub_user }}
-          dockerhub_password: ${{ inputs.dockerhub_password }}
+          dockerhub_user: ${{ secrets.dockerhub_user }}
+          dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Apache
           build_tags: |
             ggmartinez/php:{{ $inputs.version }}-Apache
