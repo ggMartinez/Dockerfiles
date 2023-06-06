@@ -52,9 +52,10 @@ jobs:
 
   PHP74:
     uses: ggmartinez/dockerfiles/.github/workflows/build-php.yml@main
-    with:
+    secrets:
       dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
       dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    with:
       version: 74
 
   

@@ -6,14 +6,13 @@ on:
         required: true 
         description: "The PHP Version"
         type: string
+    secrets:
       dockerhub_user:
         required: true
         description: "Dockerhub username"
-        type: string
       dockerhub_password:
         required: true
         description: "Dockerhub password"
-        type: string
 jobs: 
   Base:
     runs-on: ubuntu-latest
@@ -69,8 +68,8 @@ jobs:
       - name: Build image and push to Docker Hub
         uses: ./.github/actions/docker-build
         with:
-          dockerhub_user: ${{ inputs.dockerhub_user }}
-          dockerhub_password: ${{ inputs.dockerhub_password }}
+          dockerhub_user: ${{ secrets.dockerhub_user }}
+          dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Apache-Xdebug
           build_tags: |
             ggmartinez/php:{{ $inputs.version }}-Apache-Xdebug
