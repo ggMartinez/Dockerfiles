@@ -53,10 +53,7 @@ jobs:
   PHP74:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ggmartinez/dockerfiles/.github/workflows/build-php.yml@main
+      - uses: ggmartinez/dockerfiles/.github/workflows/build-php.yml@main
         with:
           dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
