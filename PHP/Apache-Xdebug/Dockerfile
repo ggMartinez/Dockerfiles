@@ -1,5 +1,7 @@
 ARG PHP_VERSION
 FROM ggmartinez/php:${PHP_VERSION}-apache
+ARG PHP_VERSION
+
 
 RUN yum-config-manager --disable 'remi-php*' \
  && yum-config-manager --enable remi-php${PHP_VERSION} \

@@ -1,7 +1,6 @@
 ARG PHP_VERSION
 FROM centos:7
-
-
+ARG PHP_VERSION
 RUN yum install -y  epel-release && yum install -y  https://rpms.remirepo.net/enterprise/remi-release-7.rpm &&  yum clean all && rm -rf /var/cache/yum
 RUN yum -y install yum-utils \
  && yum-config-manager --disable 'remi-php*' \
