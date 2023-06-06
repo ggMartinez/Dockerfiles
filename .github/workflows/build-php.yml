@@ -43,7 +43,7 @@ jobs:
         with:
           dockerhub_user: ${{ secrets.dockerhub_user }}
           dockerhub_password: ${{ secrets.dockerhub_password }}
-          build_context: ./PHP/Xdebug
+          build_context: ./PHP/Base-Xdebug
           build_tags: |
             ggmartinez/php:${{ inputs.version }}-Xdebug
           build_args: |
@@ -85,7 +85,7 @@ jobs:
     needs: Apache
     strategy:
       matrix:
-        images: ["php:${{ inputs.version }}","php:${{ inputs.version }}-Xdebug","php:${{ inputs.version }}-Apache","php:${{ inputs.version }}-Apache-Xdebug"]
+        images: ["${{ inputs.version }}","${{ inputs.version }}-Xdebug","${{ inputs.version }}-Apache","${{ inputs.version }}-Apache-Xdebug"]
         name: ["php-${{ inputs.version }}","php-${{ inputs.version }}-Xdebug","php-${{ inputs.version }}-Apache","php-${{ inputs.version }}-Apache-Xdebug"]
     steps:
       - name: Checkout Code
