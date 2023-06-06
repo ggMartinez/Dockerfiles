@@ -1,5 +1,5 @@
 ARG PHP_VERSION
-FROM ggmartinez/php:${PHP_VERSION}-apache
+FROM ggmartinez/php:${PHP_VERSION}-Apache
 ARG PHP_VERSION
 
 
