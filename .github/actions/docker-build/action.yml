@@ -7,6 +7,9 @@ inputs:
   build_tags:
     required: true 
     description: "The build tags"
+  build_args: 
+    required: false 
+    description: "Build args"
   dockerhub_user:
     required: true
     description: "Dockerhub username"
@@ -34,4 +37,5 @@ runs:
         context: ${{ inputs.build_context }}
         tags: ${{ inputs.build_tags }}
         push: true
+        build-args: ${{ inputs.build_args }}
      

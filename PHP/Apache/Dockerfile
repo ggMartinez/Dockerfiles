@@ -1,7 +1,8 @@
-FROM ggmartinez/php:8
+ARG PHP_VERSION
+FROM ggmartinez/php:${PHP_VERSION}
 
 RUN yum-config-manager --disable 'remi-php*' \
- && yum-config-manager --enable remi-php80 \
+ && yum-config-manager --enable remi-php${PHP_VERSION} \
  && yum -y install httpd  \
  && yum clean all \
  && rm -rf /var/cache/yum
