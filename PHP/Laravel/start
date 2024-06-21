@@ -5,12 +5,12 @@ echo "Installing composer packages"
 composer install 
 
 
-if [! -n "${SKIP_MIGRATIONS}" ]
+if ! [ -n "${SKIP_MIGRATIONS}" ]
 then
     php artisan migrate
 fi
 
-if [! -n "${SKIP_SEEDERS}" ]
+if ! [ -n "${SKIP_SEEDERS}" ]
 then
     php artisan db:seed
 fi
