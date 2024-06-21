@@ -1,11 +1,10 @@
-FROM fedora:40
+FROM python:3.12-alpine
 
-RUN dnf install sshpass openssh-clients -y && dnf clean all && rm -fr /var/cache
-RUN python3 -m ensurepip
+RUN apk --no-cache add sshpass openssh
 
-# Fuck Fortinet and Cisco. Very.
+#Fuck Cisco and Fortinet. Very.
 RUN pip3 install --no-cache-dir ansible==9.1.0 && \
-        rm -rf /usr/local/lib/python3.12/site-packages/ansible_collections/fortinet && \
-        rm -rf /usr/local/lib/python3.12/site-packages/ansible_collections/cisco
+    rm -rf /usr/local/lib/python3.12/site-packages/ansible_collections/fortinet && \
+    rm -rf /usr/local/lib/python3.12/site-packages/ansible_collection/cisco
 
-CMD /bin/bash
+ENTRYPOINT /bin/sh
