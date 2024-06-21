@@ -3,7 +3,18 @@ cd /app
 
 echo "Installing composer packages"
 composer install 
-echo "Running migrations"
-php artisan migrate
+
+
+if [ -n "${DO_MIGRATIONS}" ]
+do
+    php artisan migrate
+fi
+
+if [ -n "${DO_SEEDERS}" ]
+do
+    php artisan db:seed
+fi
+
+
 echo "Starting Laravel Dev Environment"
 php artisan serve --host=0.0.0.0 --port=8000
