@@ -56,7 +56,7 @@ jobs:
   PHP:
     strategy:
       matrix:
-        version: [82]
+        version: [72,74,80,81,82,83,84]
     uses: ggmartinez/dockerfiles/.github/workflows/build-php.yml@main
     secrets:
       dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
