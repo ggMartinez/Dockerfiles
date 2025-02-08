@@ -15,6 +15,10 @@ then
     php artisan db:seed
 fi
 
+if [ -n "${STORAGE_LINK}" ]
+then
+    php artisan storage:link
+fi
 
 echo "Starting Laravel Dev Environment"
 php artisan serve --host=0.0.0.0 --port=8000

@@ -32,73 +32,73 @@ jobs:
             ggmartinez/php:${{ inputs.version }}
           build_args: |
             PHP_VERSION=${{ inputs.version }}
-  Base-Xdebug:
-    runs-on: ubuntu-latest
-    needs: Base
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.dockerhub_user }}
-          dockerhub_password: ${{ secrets.dockerhub_password }}
-          build_context: ./PHP/Base-Xdebug
-          build_tags: |
-            ggmartinez/php:${{ inputs.version }}-Xdebug
-          build_args: |
-            PHP_VERSION=${{ inputs.version }}
-  Apache:
-    runs-on: ubuntu-latest
-    needs: Base
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.dockerhub_user }}
-          dockerhub_password: ${{ secrets.dockerhub_password }}
-          build_context: ./PHP/Apache
-          build_tags: |
-            ggmartinez/php:${{ inputs.version }}-Apache
-          build_args: |
-            PHP_VERSION=${{ inputs.version }}
-  Apache-Xdebug:
-    runs-on: ubuntu-latest
-    needs: Apache
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.dockerhub_user }}
-          dockerhub_password: ${{ secrets.dockerhub_password }}
-          build_context: ./PHP/Apache-Xdebug
-          build_tags: |
-            ggmartinez/php:${{ inputs.version }}-Apache-Xdebug
-          build_args: |
-            PHP_VERSION=${{ inputs.version }}
-  Laravel:
-    runs-on: ubuntu-latest
-    needs: Apache
-    strategy:
-      matrix:
-        images: ["${{ inputs.version }}","${{ inputs.version }}-Xdebug","${{ inputs.version }}-Apache","${{ inputs.version }}-Apache-Xdebug"]
-        name: ["php-${{ inputs.version }}","php-${{ inputs.version }}-Xdebug","php-${{ inputs.version }}-Apache","php-${{ inputs.version }}-Apache-Xdebug"]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.dockerhub_user }}
-          dockerhub_password: ${{ secrets.dockerhub_password }}
-          build_context: ./PHP/Laravel
-          build_tags: |
-            ggmartinez/laravel:${{ matrix.name }}
-          build_args: |
-            PHP_VERSION=${{ inputs.version }}
-            IMAGE=${{ matrix.images }}
+  # Base-Xdebug:
+  #   runs-on: ubuntu-latest
+  #   needs: Base
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.dockerhub_user }}
+  #         dockerhub_password: ${{ secrets.dockerhub_password }}
+  #         build_context: ./PHP/Base-Xdebug
+  #         build_tags: |
+  #           ggmartinez/php:${{ inputs.version }}-Xdebug
+  #         build_args: |
+  #           PHP_VERSION=${{ inputs.version }}
+  # Apache:
+  #   runs-on: ubuntu-latest
+  #   needs: Base
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.dockerhub_user }}
+  #         dockerhub_password: ${{ secrets.dockerhub_password }}
+  #         build_context: ./PHP/Apache
+  #         build_tags: |
+  #           ggmartinez/php:${{ inputs.version }}-Apache
+  #         build_args: |
+  #           PHP_VERSION=${{ inputs.version }}
+  # Apache-Xdebug:
+  #   runs-on: ubuntu-latest
+  #   needs: Apache
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.dockerhub_user }}
+  #         dockerhub_password: ${{ secrets.dockerhub_password }}
+  #         build_context: ./PHP/Apache-Xdebug
+  #         build_tags: |
+  #           ggmartinez/php:${{ inputs.version }}-Apache-Xdebug
+  #         build_args: |
+  #           PHP_VERSION=${{ inputs.version }}
+  # Laravel:
+  #   runs-on: ubuntu-latest
+  #   needs: Apache
+  #   strategy:
+  #     matrix:
+  #       images: ["${{ inputs.version }}","${{ inputs.version }}-Xdebug","${{ inputs.version }}-Apache","${{ inputs.version }}-Apache-Xdebug"]
+  #       name: ["php-${{ inputs.version }}","php-${{ inputs.version }}-Xdebug","php-${{ inputs.version }}-Apache","php-${{ inputs.version }}-Apache-Xdebug"]
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.dockerhub_user }}
+  #         dockerhub_password: ${{ secrets.dockerhub_password }}
+  #         build_context: ./PHP/Laravel
+  #         build_tags: |
+  #           ggmartinez/laravel:${{ matrix.name }}
+  #         build_args: |
+  #           PHP_VERSION=${{ inputs.version }}
+  #           IMAGE=${{ matrix.images }}
 
