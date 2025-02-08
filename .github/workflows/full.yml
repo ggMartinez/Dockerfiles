@@ -8,55 +8,55 @@ on:
 
 
 jobs:
-  Terraform-123:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./Terraform
-          build_tags: |
-            ggmartinez/terraform:1.2.3
-            ggmartinez/terraform:latest
+  # Terraform-123:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./Terraform
+  #         build_tags: |
+  #           ggmartinez/terraform:1.2.3
+  #           ggmartinez/terraform:latest
 
-  AWS-CLI-v2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./AWS/CLIv2
-          build_tags: |
-            ggmartinez/awscli:2
-            ggmartinez/awscli:latest
+  # AWS-CLI-v2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./AWS/CLIv2
+  #         build_tags: |
+  #           ggmartinez/awscli:2
+  #           ggmartinez/awscli:latest
   
-  Ansible-910:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: BUild image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./Ansible/9.1.0
-          build_tags: |
-            ggmartinez/awscli:2
-            ggmartinez/awscli:latest
+  # Ansible-910:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: BUild image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./Ansible/9.1.0
+  #         build_tags: |
+  #           ggmartinez/awscli:2
+  #           ggmartinez/awscli:latest
 
   PHP:
     strategy:
       matrix:
-        version: [74, 80, 81, 82]
+        version: [82]
     uses: ggmartinez/dockerfiles/.github/workflows/build-php.yml@main
     secrets:
       dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
@@ -66,45 +66,45 @@ jobs:
 
   
 
-  Python2-Debugpy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./Python/2/Debugpy
-          build_tags: |
-            ggmartinez/python:2-debugpy
-  Python3-Debugpy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./Python/3/Debugpy
-          build_tags: |
-            ggmartinez/python:3-debugpy
-  Django-165:
-    runs-on: ubuntu-latest
-    needs: Python2-Debugpy
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Build image and push to Docker Hub
-        uses: ./.github/actions/docker-build
-        with:
-          dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          build_context: ./Python/Django/1.6.5
-          build_tags: |
-            ggmartinez/django:1.6.5
+  # Python2-Debugpy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./Python/2/Debugpy
+  #         build_tags: |
+  #           ggmartinez/python:2-debugpy
+  # Python3-Debugpy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./Python/3/Debugpy
+  #         build_tags: |
+  #           ggmartinez/python:3-debugpy
+  # Django-165:
+  #   runs-on: ubuntu-latest
+  #   needs: Python2-Debugpy
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #     - name: Build image and push to Docker Hub
+  #       uses: ./.github/actions/docker-build
+  #       with:
+  #         dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+  #         dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #         build_context: ./Python/Django/1.6.5
+  #         build_tags: |
+  #           ggmartinez/django:1.6.5
 
 

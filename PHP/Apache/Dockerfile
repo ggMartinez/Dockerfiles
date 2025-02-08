@@ -3,20 +3,21 @@ FROM ggmartinez/php:${PHP_VERSION}
 ARG PHP_VERSION
 
 
-RUN yum-config-manager --disable 'remi-php*' \
- && yum-config-manager --enable remi-php${PHP_VERSION} \
- && yum -y install httpd  \
- && yum clean all \
- && rm -rf /var/cache/yum
+RUN dnf -y install httpd -y  \
+    && dnf clean all \
+    && rm -rf /var/cache/yum
 
 RUN echo " " > /etc/httpd/conf.d/welcome.conf && \
     echo " " > /etc/httpd/conf.d/userdir.conf && \
     echo " " > /etc/httpd/conf.d/autoindex.conf && \
     sed -i 's/^/#/g' /etc/httpd/conf.modules.d/00-proxy.conf && \
-    sed -i '151s/None/All/g' /etc/httpd/conf/httpd.conf && \
-    sed -i '144s/.*/Options\ FollowSymLinks/g' /etc/httpd/conf/httpd.conf && \
-    sed -i '182s/logs\/error_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf && \
-    sed -i '217s/logs\/access_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf
+    sed -i 's/^/#/g' /etc/httpd/conf.modules.d/10-proxy_h2.conf && \
+    sed -i '154s/None/All/g' /etc/httpd/conf/httpd.conf && \
+    sed -i '147s/.*/Options\ FollowSymLinks/g' /etc/httpd/conf/httpd.conf && \
+    sed -i '185s/logs\/error_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf && \
+    sed -i '220s/logs\/access_log/\/dev\/stdout/g' /etc/httpd/conf/httpd.conf && \
+    sed -i '23s/^/#/g' /etc/httpd/conf.modules.d/00-mpm.conf && \
+    sed -i '11s/\#//g' /etc/httpd/conf.modules.d/00-mpm.conf
 
 COPY --chmod=0755 start.sh /start.sh
 
