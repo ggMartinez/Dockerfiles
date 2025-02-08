@@ -1,10 +1,11 @@
 #!/bin/bash
-cd /app
+cd /var/www/html
 
 if ! [ -n "${SKIP_COMPOSER}" ]
 then
-    composer install
+   composer install
 fi
+
 
 if ! [ -n "${SKIP_MIGRATIONS}" ]
 then
@@ -21,5 +22,4 @@ then
     php artisan storage:link
 fi
 
-echo "Starting Laravel Dev Environment"
-php artisan serve --host=0.0.0.0 --port=8000
+httpd -D FOREGROUND
