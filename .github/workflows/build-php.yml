@@ -106,7 +106,7 @@ jobs:
     needs: Apache
     strategy:
       matrix:
-        images: ["${{ inputs.version }}-apache","${{ inputs.version }}-apachexdebug"]
+        images: ["${{ inputs.version }}-apache","${{ inputs.version }}-apache-xdebug"]
         name: ["php-${{ inputs.version }}-apache","php-${{ inputs.version }}-apache-xdebug"]
     steps:
       - name: Checkout Code
