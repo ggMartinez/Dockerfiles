@@ -45,7 +45,7 @@ jobs:
           dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Base-Xdebug
           build_tags: |
-            ggmartinez/php:${{ inputs.version }}-Xdebug
+            ggmartinez/php:${{ inputs.version }}-xdebug
           build_args: |
             PHP_VERSION=${{ inputs.version }}
   Apache:
@@ -61,7 +61,7 @@ jobs:
           dockerhub_password: ${{ secrets.dockerhub_password }}
           build_context: ./PHP/Apache
           build_tags: |
-            ggmartinez/php:${{ inputs.version }}-Apache
+            ggmartinez/php:${{ inputs.version }}-httpd
           build_args: |
             PHP_VERSION=${{ inputs.version }}
   # Apache-Xdebug:
