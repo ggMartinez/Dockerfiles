@@ -28,4 +28,5 @@ then
    php artisan key:generate
 fi
 
+chown apache -R /var/www/html/storage
 httpd -D FOREGROUND
