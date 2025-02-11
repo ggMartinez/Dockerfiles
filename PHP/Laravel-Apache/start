@@ -22,4 +22,10 @@ then
     php artisan storage:link
 fi
 
+if [ -n .env ]
+then
+   cp .env.example .env
+   php artisan key:generate
+fi
+
 httpd -D FOREGROUND
